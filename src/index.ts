@@ -171,31 +171,11 @@ export class Maisa extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  MaisaError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 Maisa.Capabilities = Capabilities;
 Maisa.Models = Models;
 Maisa.Kpu = Kpu;
 Maisa.FileInterpreter = FileInterpreter;
 Maisa.Mainet = Mainet;
-
 export declare namespace Maisa {
   export type RequestOptions = Core.RequestOptions;
 
@@ -218,5 +198,22 @@ export declare namespace Maisa {
   export type TextExtractor = API.TextExtractor;
   export type TextSummary = API.TextSummary;
 }
+
+export { toFile, fileFromPath } from 'maisa/uploads';
+export {
+  MaisaError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'maisa/error';
 
 export default Maisa;
