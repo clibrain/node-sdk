@@ -199,7 +199,7 @@ export declare namespace Maisa {
   export type TextSummary = API.TextSummary;
 }
 
-export { toFile, fileFromPath } from 'maisa/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   MaisaError,
   APIError,
@@ -214,6 +214,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'maisa/error';
+} from './error';
 
 export default Maisa;
