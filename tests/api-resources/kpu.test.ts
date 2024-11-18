@@ -25,11 +25,7 @@ describe('resource kpu', () => {
       query: 'query',
       explain_steps: true,
       retries: 1,
-      file: [
-        await toFile(Buffer.from('# my file contents'), 'README.md'),
-        await toFile(Buffer.from('# my file contents'), 'README.md'),
-        await toFile(Buffer.from('# my file contents'), 'README.md'),
-      ],
+      file: [await toFile(Buffer.from('# my file contents'), 'README.md')],
       reasoner_model: 'gpt-4-turbo',
       reasoner_prompt: 'reasoner_prompt',
     });
