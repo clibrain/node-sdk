@@ -1,9 +1,7 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as FromDocxAPI from 'maisa/resources/file-interpreter/from-docx';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
 
 export class FromDocx extends APIResource {
   /**
@@ -12,7 +10,7 @@ export class FromDocx extends APIResource {
   create(body: FromDocxCreateParams, options?: Core.RequestOptions): Core.APIPromise<unknown> {
     return this._client.post(
       '/v1/file-interpreter/from-docx',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
@@ -20,10 +18,12 @@ export class FromDocx extends APIResource {
 export type FromDocxCreateResponse = unknown;
 
 export interface FromDocxCreateParams {
-  file: Uploadable;
+  file: Core.Uploadable;
 }
 
-export namespace FromDocx {
-  export import FromDocxCreateResponse = FromDocxAPI.FromDocxCreateResponse;
-  export import FromDocxCreateParams = FromDocxAPI.FromDocxCreateParams;
+export declare namespace FromDocx {
+  export {
+    type FromDocxCreateResponse as FromDocxCreateResponse,
+    type FromDocxCreateParams as FromDocxCreateParams,
+  };
 }

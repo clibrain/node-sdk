@@ -1,16 +1,16 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Maisa, { toFile } from 'maisa';
 import { Response } from 'node-fetch';
 
-const maisa = new Maisa({
+const client = new Maisa({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource fromPdf', () => {
   test('create: only required params', async () => {
-    const responsePromise = maisa.fileInterpreter.fromPdf.create({
+    const responsePromise = client.fileInterpreter.fromPdf.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -23,7 +23,7 @@ describe('resource fromPdf', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await maisa.fileInterpreter.fromPdf.create({
+    const response = await client.fileInterpreter.fromPdf.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       max_pages: 0,
     });

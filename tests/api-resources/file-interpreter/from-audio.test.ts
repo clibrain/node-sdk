@@ -1,16 +1,16 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Maisa, { toFile } from 'maisa';
 import { Response } from 'node-fetch';
 
-const maisa = new Maisa({
+const client = new Maisa({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource fromAudio', () => {
   test('create: only required params', async () => {
-    const responsePromise = maisa.fileInterpreter.fromAudio.create({
+    const responsePromise = client.fileInterpreter.fromAudio.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -23,7 +23,7 @@ describe('resource fromAudio', () => {
   });
 
   test('create: required and optional params', async () => {
-    const response = await maisa.fileInterpreter.fromAudio.create({
+    const response = await client.fileInterpreter.fromAudio.create({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
   });

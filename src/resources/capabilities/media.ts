@@ -1,54 +1,51 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as MediaAPI from 'maisa/resources/capabilities/media';
-import * as Shared from 'maisa/resources/shared';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
+import * as Shared from '../shared';
 
 export class Media extends APIResource {
   /**
    * Compare extracts of media files based on a specific data. This endpoint supports
    * an additional field `model` documented in this url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   compare(body: MediaCompareParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextComparator> {
     return this._client.post(
       '/v1/capabilities/compare/media',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 
   /**
    * Extracts structured data from a file. The text is analyzed and the variables are
    * extracted. This endpoint supports an additional field `model` documented in this
-   * url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * url: https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   extract(body: MediaExtractParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextExtractor> {
     return this._client.post(
       '/v1/capabilities/extract/media',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 
   /**
    * Summarizes a media file. This endpoint supports an additional field `model`
    * documented in this url:
-   * https://dash.readme.com/project/clibrain-platform-api/v1.0/docs/capabilities-with-media-via-json-config
+   * https://docs.maisa.ai/docs/capabilities-with-media-via-json-config
    */
   summarize(body: MediaSummarizeParams, options?: Core.RequestOptions): Core.APIPromise<Shared.TextSummary> {
     return this._client.post(
       '/v1/capabilities/summarize/media',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
 
 export interface MediaCompareParams {
-  file1: Uploadable;
+  file1: Core.Uploadable;
 
-  file2: Uploadable;
+  file2: Core.Uploadable;
 
   /**
    * The language of the output. If not provided, the language used will be the same
@@ -123,7 +120,7 @@ export interface MediaCompareParams {
 }
 
 export interface MediaExtractParams {
-  file: Uploadable;
+  file: Core.Uploadable;
 
   /**
    * The language of the output. If not provided, the language used will be the same
@@ -193,7 +190,7 @@ export interface MediaExtractParams {
 }
 
 export interface MediaSummarizeParams {
-  file: Uploadable;
+  file: Core.Uploadable;
 
   /**
    * Text Summary Request Format.
@@ -217,8 +214,10 @@ export interface MediaSummarizeParams {
   summary_hint?: string;
 }
 
-export namespace Media {
-  export import MediaCompareParams = MediaAPI.MediaCompareParams;
-  export import MediaExtractParams = MediaAPI.MediaExtractParams;
-  export import MediaSummarizeParams = MediaAPI.MediaSummarizeParams;
+export declare namespace Media {
+  export {
+    type MediaCompareParams as MediaCompareParams,
+    type MediaExtractParams as MediaExtractParams,
+    type MediaSummarizeParams as MediaSummarizeParams,
+  };
 }

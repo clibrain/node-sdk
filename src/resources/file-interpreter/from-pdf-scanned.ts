@@ -2,4 +2,4 @@
 
 import { APIResource } from '../../resource';
 
-export class Search extends APIResource {}
+export class FromPdfScanned extends APIResource {}

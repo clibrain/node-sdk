@@ -1,31 +1,29 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as FromImageAPI from 'maisa/resources/file-interpreter/from-image';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
 
-export class FromImageResource extends APIResource {
+export class FromImage extends APIResource {
   /**
    * Interprets an image file and returns a description of the image.
    */
-  create(body: FromImageCreateParams, options?: Core.RequestOptions): Core.APIPromise<FromImage> {
+  create(body: FromImageCreateParams, options?: Core.RequestOptions): Core.APIPromise<unknown> {
     return this._client.post(
       '/v1/file-interpreter/from-image',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
 
-export interface FromImage {
-  imageCaption: string;
-}
+export type FromImageCreateResponse = unknown;
 
 export interface FromImageCreateParams {
-  file: Uploadable;
+  file: Core.Uploadable;
 }
 
-export namespace FromImageResource {
-  export import FromImage = FromImageAPI.FromImage;
-  export import FromImageCreateParams = FromImageAPI.FromImageCreateParams;
+export declare namespace FromImage {
+  export {
+    type FromImageCreateResponse as FromImageCreateResponse,
+    type FromImageCreateParams as FromImageCreateParams,
+  };
 }

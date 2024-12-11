@@ -1,8 +1,9 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export { FileInterpreter } from './file-interpreter';
-export { FromAudioCreateResponse, FromAudioCreateParams, FromAudio } from './from-audio';
-export { FromDocxCreateResponse, FromDocxCreateParams, FromDocx } from './from-docx';
-export { FromHTMLCreateResponse, FromHTMLCreateParams, FromHTML } from './from-html';
-export { FromImage, FromImageCreateParams, FromImageResource } from './from-image';
-export { FromPdfCreateResponse, FromPdfCreateParams, FromPdf } from './from-pdf';
+export { FromAudio, type FromAudioCreateResponse, type FromAudioCreateParams } from './from-audio';
+export { FromDocx, type FromDocxCreateResponse, type FromDocxCreateParams } from './from-docx';
+export { FromHTML, type FromHTMLCreateResponse, type FromHTMLCreateParams } from './from-html';
+export { FromImage, type FromImageCreateResponse, type FromImageCreateParams } from './from-image';
+export { FromPdf, type FromPdfCreateResponse, type FromPdfCreateParams } from './from-pdf';
+export { FromPdfScanned } from './from-pdf-scanned';

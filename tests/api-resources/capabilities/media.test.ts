@@ -1,16 +1,16 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import Maisa, { toFile } from 'maisa';
 import { Response } from 'node-fetch';
 
-const maisa = new Maisa({
+const client = new Maisa({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
 describe('resource media', () => {
   test('compare: only required params', async () => {
-    const responsePromise = maisa.capabilities.media.compare({
+    const responsePromise = client.capabilities.media.compare({
       file1: await toFile(Buffer.from('# my file contents'), 'README.md'),
       file2: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
@@ -24,7 +24,7 @@ describe('resource media', () => {
   });
 
   test('compare: required and optional params', async () => {
-    const response = await maisa.capabilities.media.compare({
+    const response = await client.capabilities.media.compare({
       file1: await toFile(Buffer.from('# my file contents'), 'README.md'),
       file2: await toFile(Buffer.from('# my file contents'), 'README.md'),
       lang: 'en',
@@ -45,7 +45,7 @@ describe('resource media', () => {
   });
 
   test('extract: only required params', async () => {
-    const responsePromise = maisa.capabilities.media.extract({
+    const responsePromise = client.capabilities.media.extract({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -58,7 +58,7 @@ describe('resource media', () => {
   });
 
   test('extract: required and optional params', async () => {
-    const response = await maisa.capabilities.media.extract({
+    const response = await client.capabilities.media.extract({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       lang: 'en',
       variable1_description: 'The name of the person.',
@@ -77,7 +77,7 @@ describe('resource media', () => {
   });
 
   test('summarize: only required params', async () => {
-    const responsePromise = maisa.capabilities.media.summarize({
+    const responsePromise = client.capabilities.media.summarize({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -90,7 +90,7 @@ describe('resource media', () => {
   });
 
   test('summarize: required and optional params', async () => {
-    const response = await maisa.capabilities.media.summarize({
+    const response = await client.capabilities.media.summarize({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       format: 'paragraph',
       lang: 'en',

@@ -1,9 +1,7 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Core from 'maisa/core';
-import { APIResource } from 'maisa/resource';
-import * as FromAudioAPI from 'maisa/resources/file-interpreter/from-audio';
-import { type Uploadable, multipartFormRequestOptions } from 'maisa/core';
+import { APIResource } from '../../resource';
+import * as Core from '../../core';
 
 export class FromAudio extends APIResource {
   /**
@@ -12,7 +10,7 @@ export class FromAudio extends APIResource {
   create(body: FromAudioCreateParams, options?: Core.RequestOptions): Core.APIPromise<unknown> {
     return this._client.post(
       '/v1/file-interpreter/from-audio',
-      multipartFormRequestOptions({ body, ...options }),
+      Core.multipartFormRequestOptions({ body, ...options }),
     );
   }
 }
@@ -20,10 +18,12 @@ export class FromAudio extends APIResource {
 export type FromAudioCreateResponse = unknown;
 
 export interface FromAudioCreateParams {
-  file: Uploadable;
+  file: Core.Uploadable;
 }
 
-export namespace FromAudio {
-  export import FromAudioCreateResponse = FromAudioAPI.FromAudioCreateResponse;
-  export import FromAudioCreateParams = FromAudioAPI.FromAudioCreateParams;
+export declare namespace FromAudio {
+  export {
+    type FromAudioCreateResponse as FromAudioCreateResponse,
+    type FromAudioCreateParams as FromAudioCreateParams,
+  };
 }

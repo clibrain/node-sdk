@@ -1,9 +1,9 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 export {
-  CapabilityCompareParams,
-  CapabilityExtractParams,
-  CapabilitySummarizeParams,
   Capabilities,
+  type CapabilityCompareParams,
+  type CapabilityExtractParams,
+  type CapabilitySummarizeParams,
 } from './capabilities';
-export { MediaCompareParams, MediaExtractParams, MediaSummarizeParams, Media } from './media';
+export { Media, type MediaCompareParams, type MediaExtractParams, type MediaSummarizeParams } from './media';

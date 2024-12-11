@@ -1,10 +1,20 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as Errors from './error';
-import { type Agent } from './_shims/index';
 import * as Uploads from './uploads';
-import * as API from 'maisa/resources/index';
+import * as API from './resources/index';
+import { Kpu, KpuRunParams, KpuRunResponse } from './resources/kpu';
+import {
+  Capabilities,
+  CapabilityCompareParams,
+  CapabilityExtractParams,
+  CapabilitySummarizeParams,
+} from './resources/capabilities/capabilities';
+import { FileInterpreter } from './resources/file-interpreter/file-interpreter';
+import { Mainet } from './resources/mainet/mainet';
+import { Models } from './resources/models/models';
 
 export interface ClientOptions {
   /**
@@ -69,7 +79,9 @@ export interface ClientOptions {
   defaultQuery?: Core.DefaultQuery;
 }
 
-/** API Client for interfacing with the Maisa API. */
+/**
+ * API Client for interfacing with the Maisa API.
+ */
 export class Maisa extends Core.APIClient {
   apiKey: string;
 
@@ -111,6 +123,7 @@ export class Maisa extends Core.APIClient {
       maxRetries: options.maxRetries,
       fetch: options.fetch,
     });
+
     this._options = options;
 
     this.apiKey = apiKey;
@@ -138,6 +151,7 @@ export class Maisa extends Core.APIClient {
   }
 
   static Maisa = this;
+  static DEFAULT_TIMEOUT = 60000; // 1 minute
 
   static MaisaError = Errors.MaisaError;
   static APIError = Errors.APIError;
@@ -152,9 +166,41 @@ export class Maisa extends Core.APIClient {
   static InternalServerError = Errors.InternalServerError;
   static PermissionDeniedError = Errors.PermissionDeniedError;
   static UnprocessableEntityError = Errors.UnprocessableEntityError;
+
+  static toFile = Uploads.toFile;
+  static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+Maisa.Capabilities = Capabilities;
+Maisa.Models = Models;
+Maisa.Kpu = Kpu;
+Maisa.FileInterpreter = FileInterpreter;
+Maisa.Mainet = Mainet;
+export declare namespace Maisa {
+  export type RequestOptions = Core.RequestOptions;
+
+  export {
+    Capabilities as Capabilities,
+    type CapabilityCompareParams as CapabilityCompareParams,
+    type CapabilityExtractParams as CapabilityExtractParams,
+    type CapabilitySummarizeParams as CapabilitySummarizeParams,
+  };
+
+  export { Models as Models };
+
+  export { Kpu as Kpu, type KpuRunResponse as KpuRunResponse, type KpuRunParams as KpuRunParams };
+
+  export { FileInterpreter as FileInterpreter };
+
+  export { Mainet as Mainet };
+
+  export type TextComparator = API.TextComparator;
+  export type TextExtractor = API.TextExtractor;
+  export type TextSummary = API.TextSummary;
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   MaisaError,
   APIError,
   APIConnectionError,
@@ -168,36 +214,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace Maisa {
-  // Helper functions
-  export import toFile = Uploads.toFile;
-  export import fileFromPath = Uploads.fileFromPath;
-
-  export import RequestOptions = Core.RequestOptions;
-
-  export import Capabilities = API.Capabilities;
-  export import CapabilityCompareParams = API.CapabilityCompareParams;
-  export import CapabilityExtractParams = API.CapabilityExtractParams;
-  export import CapabilitySummarizeParams = API.CapabilitySummarizeParams;
-
-  export import Models = API.Models;
-
-  export import Kpu = API.Kpu;
-  export import KpuRunResponse = API.KpuRunResponse;
-  export import KpuRunParams = API.KpuRunParams;
-
-  export import FileInterpreter = API.FileInterpreter;
-
-  export import Mainet = API.Mainet;
-
-  export import TextComparator = API.TextComparator;
-  export import TextExtractor = API.TextExtractor;
-  export import TextSummary = API.TextSummary;
-}
+} from './error';
 
 export default Maisa;

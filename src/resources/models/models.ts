@@ -1,18 +1,20 @@
-// File generated from our OpenAPI spec by Stainless.
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from 'maisa/resource';
-import * as EmbeddingsAPI from 'maisa/resources/models/embeddings';
-import * as RerankAPI from 'maisa/resources/models/rerank';
+import { APIResource } from '../../resource';
+import * as EmbeddingsAPI from './embeddings';
+import { EmbeddingCreateParams, Embeddings } from './embeddings';
+import * as RerankAPI from './rerank';
+import { Rerank } from './rerank';
 
 export class Models extends APIResource {
   embeddings: EmbeddingsAPI.Embeddings = new EmbeddingsAPI.Embeddings(this._client);
-  rerank: RerankAPI.RerankResource = new RerankAPI.RerankResource(this._client);
+  rerank: RerankAPI.Rerank = new RerankAPI.Rerank(this._client);
 }
 
-export namespace Models {
-  export import Embeddings = EmbeddingsAPI.Embeddings;
-  export import EmbeddingCreateParams = EmbeddingsAPI.EmbeddingCreateParams;
-  export import RerankResource = RerankAPI.RerankResource;
-  export import Rerank = RerankAPI.Rerank;
-  export import RerankCreateParams = RerankAPI.RerankCreateParams;
+Models.Rerank = Rerank;
+
+export declare namespace Models {
+  export { type Embeddings as Embeddings, type EmbeddingCreateParams as EmbeddingCreateParams };
+
+  export { Rerank as Rerank };
 }

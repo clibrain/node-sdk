@@ -7,7 +7,6 @@
     "paths": {
       "maisa/*": ["dist/src/*"],
       "maisa": ["dist/src/index.ts"],
-      "digest-fetch": ["./typings/digest-fetch"]
     },
     "noEmit": false,
     "declaration": true,
